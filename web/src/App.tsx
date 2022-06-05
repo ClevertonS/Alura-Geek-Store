@@ -1,9 +1,11 @@
 import React from 'react';
 
+import { Header } from './components/header';
+import { PrimaryButton } from './components/primaryButton';
+import { SecundaryButton } from './components/secundaryButton';
+
 function App() {
-  return (
-    <h1 className="text-3xl font-bold underline ">Teste</h1>
-  );
+  return <Header />;
 }
 
 export default App;
