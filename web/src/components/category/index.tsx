@@ -5,7 +5,7 @@ import { Card } from './card';
 
 export function Category() {
   return (
-    <section className="container-Items bg-[#E5E5E5] py-4">
+    <section className="container-Items bg-black-5 py-4">
       <div className="flex items-center justify-between sm:py-4 xl:pt-12">
         <h3 className="text-[22px] text-black-100 font-bold xl:text-[32px]">Star Wars</h3>
         <a href="Testando1-2-3" className="flex items-center">
