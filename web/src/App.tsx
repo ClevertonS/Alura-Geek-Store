@@ -1,11 +1,17 @@
 import React from 'react';
 
+import { Category } from './components/category';
+import { Emphasis } from './components/emphasis';
 import { Header } from './components/header';
-import { PrimaryButton } from './components/primaryButton';
-import { SecundaryButton } from './components/secundaryButton';
 
 function App() {
-  return <Header />;
+  return (
+    <>
+      <Header />
+      <Emphasis />
+      <Category />
+    </>
+  );
 }
 
 export default App;
