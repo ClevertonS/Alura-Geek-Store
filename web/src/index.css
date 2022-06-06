@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .btn-primary {
+        @apply bg-blue-100 px-4 py-3 lg:p-4 text-white font-normal hover:bg-blue-80 hover:transition-colors;
+    }
+    .btn-secundary {
+        @apply bg-transparent px-4 py-3 lg:p-4 border border-blue-100 font-normal text-blue-100 hover:bg-blue-20;
+    }
+}
