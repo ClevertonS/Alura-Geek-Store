@@ -1,20 +1,34 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import { Category } from './components/category';
 import { Creditos } from './components/creditos';
-import { Emphasis } from './components/emphasis';
 import { Footer } from './components/footer';
 import { Header } from './components/header';
+import { Category } from './pages/category';
+import { Emphasis } from './pages/category/emphasis';
+import { CreateProduct } from './pages/productCreator';
 
 function App() {
   return (
-    <>
+    <Router>
       <Header />
-      <Emphasis />
-      <Category />
+      <Routes>
+        <Route path="/">
+          <Route
+            index
+            element={
+              <>
+                <Emphasis />
+                <Category />
+              </>
+            }
+          />
+          <Route path="/create" element={<CreateProduct />} />
+        </Route>
+      </Routes>
       <Footer />
       <Creditos />
-    </>
+    </Router>
   );
 }
 
