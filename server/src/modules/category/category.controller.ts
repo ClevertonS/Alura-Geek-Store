@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
-import { ProductDTO } from '../product/product.dto';
+import { ProductDTO } from './product/product.dto';
 import { CategoryDTO } from './category.dto';
 import { CategoryService } from './category.service';
 
