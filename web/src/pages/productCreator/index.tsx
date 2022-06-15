@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 
 import { ProductDescription } from './productDescription';
@@ -14,12 +15,27 @@ export function CreateProduct() {
   const [image, setImage] = useState<string | undefined>('');
   const [category, setCategory] = useState<string>('');
 
-  console.log(category);
+  function onSubmitFrom(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    axios
+      .post('http://localhost:4000/product', {
+        title: name,
+        category,
+        productImage: image,
+        description,
+        price,
+      })
+      .then(() => {
+        console.log('Produto cadastrado com sucesso');
+      })
+      .catch((error) => console.log(error));
+  }
+
   return (
     <section className="container-Items bg-black-5">
       <div className="m-auto flex flex-col md:max-w-[559px]">
         <h2 className="subTitle pb-4">Adcionar novo produto</h2>
-        <form action="submit" className="flex flex-col items-center">
+        <form action="submit" onSubmit={onSubmitFrom} className="flex flex-col items-center">
           <NameProduct name={name} setName={setName} />
           <div className="flex w-full md:max-w-[559px]">
             <ProductPrice setPrice={setPrice} />

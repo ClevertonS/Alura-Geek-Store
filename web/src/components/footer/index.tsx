@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import logo from '../../assets/Logo.svg';
 import { Form } from './form';
@@ -9,7 +10,9 @@ export function Footer() {
     <footer className="container-Items flex flex-col items-center bg-blue-10 sm:flex-row sm:justify-between">
       <div className="sm:flex sm:flex-col xl:w-1/2 xl:flex-row xl:justify-between">
         <div>
-          <img src={logo} alt="Logo Alura Geek" className="w-[176px]" />
+          <Link to="/">
+            <img src={logo} alt="Logo Alura Geek" className="w-[176px]" />
+          </Link>
         </div>
         <Links />
       </div>

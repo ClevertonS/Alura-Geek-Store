@@ -24,6 +24,7 @@ export function SelectImage({ setImage }: ISelectImage) {
           type="file"
           accept=".png, .jpeg, .jpg, .gif"
           className="absolute left-0 top-0 h-14 w-full cursor-pointer opacity-0"
+          required
           onChange={(event: React.FormEvent) => {
             const target = event.target as HTMLInputElement;
             const file: File = (target.files as FileList)[0];

@@ -8,7 +8,7 @@ interface ICateogry {
 
 export function SelectCategory({ category, setCategory }: ICateogry) {
   const [open, setOpen] = useState(false);
-  const teste2 = 'teste';
+  const teste2 = 'Consoles';
 
   function handleClick() {
     setOpen(true);

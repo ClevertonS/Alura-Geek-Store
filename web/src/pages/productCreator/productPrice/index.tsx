@@ -17,6 +17,7 @@ export function ProductPrice({ setPrice }: IProductPrice) {
         decimalScale={2}
         decimalSeparator=","
         prefix="R$ "
+        required
         onValueChange={(values) => {
           const { formattedValue, floatValue } = values;
           setPrice(floatValue);

@@ -14,6 +14,7 @@ export function ProductDescription({ description, setDescription }: IProductDesc
         onChange={(event) => setDescription(event.target.value)}
         value={description}
         className="w-full pb-[30px] outline-none"
+        required
       />
     </fieldset>
   );

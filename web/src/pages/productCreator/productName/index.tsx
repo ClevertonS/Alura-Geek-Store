@@ -14,6 +14,7 @@ export function NameProduct({ name, setName }: IProductName) {
         value={name}
         onChange={(event) => setName(event.target.value)}
         className="w-full outline-none md:max-w-[559px]"
+        required
       />
     </fieldset>
   );

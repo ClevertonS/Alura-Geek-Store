@@ -6,6 +6,7 @@ import { Footer } from './components/footer';
 import { Header } from './components/header';
 import { Category } from './pages/category';
 import { Emphasis } from './pages/category/emphasis';
+import { Login } from './pages/login';
 import { CreateProduct } from './pages/productCreator';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
             }
           />
           <Route path="/create" element={<CreateProduct />} />
+          <Route path="/login" element={<Login />} />
         </Route>
       </Routes>
       <Footer />
