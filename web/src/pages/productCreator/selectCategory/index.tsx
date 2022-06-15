@@ -1,14 +1,26 @@
+import axios from 'axios';
 import { ArrowDown, ArrowUp } from 'phosphor-react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-interface ICateogry {
+import { ICategory } from '../../../interface/ICategory';
+
+interface IProps {
   category: string;
   setCategory: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export function SelectCategory({ category, setCategory }: ICateogry) {
+export function SelectCategory({ category, setCategory }: IProps) {
   const [open, setOpen] = useState(false);
-  const teste2 = 'Consoles';
+  const [handleCategory, setHandleCategory] = useState<ICategory[]>();
+  const categoryName =
+    category && handleCategory?.find((option) => option.category === category)?.category;
+
+  useEffect(() => {
+    axios
+      .get('http://localhost:4000/category')
+      .then((event) => setHandleCategory(event.data))
+      .catch((error) => console.log(error));
+  });
 
   function handleClick() {
     setOpen(true);
@@ -29,42 +41,21 @@ export function SelectCategory({ category, setCategory }: ICateogry) {
         onClick={() => setOpen(!open)}
         onBlur={() => setOpen(false)}
       >
-        <span>{category === teste2 ? teste2 : 'Escolha a Caaategoria'}</span>
+        <span>{categoryName || 'Escolha a Caaategoria'}</span>
         {open ? <ArrowUp color="#464646" size={16} /> : <ArrowDown color="#464646" size={16} />}
         {open ? (
           <div className="absolute left-0 top-full flex w-full flex-col">
-            <div
-              aria-hidden="true"
-              className="input-container flex h-12 w-full items-center border-y-2 border-black-5 px-3 hover:bg-slate-50"
-              onClick={() => setCategory(teste2)}
-              onKeyDown={handleKeyDown}
-            >
-              {teste2}
-            </div>
-            <div
-              aria-hidden="true"
-              className="input-container flex h-12 w-full items-center border-y-2 border-black-5 px-3 hover:bg-slate-50"
-              onClick={() => setCategory(teste2)}
-              onKeyDown={handleKeyDown}
-            >
-              {teste2}
-            </div>
-            <div
-              aria-hidden="true"
-              className="input-container flex h-12 w-full items-center border-y-2 border-black-5 px-3 hover:bg-slate-50"
-              onClick={() => setCategory(teste2)}
-              onKeyDown={handleKeyDown}
-            >
-              {teste2}
-            </div>
-            <div
-              aria-hidden="true"
-              className="input-container flex h-12 w-full items-center border-y-2 border-black-5 px-3 hover:bg-slate-50"
-              onClick={() => setCategory(teste2)}
-              onKeyDown={handleKeyDown}
-            >
-              {teste2}
-            </div>
+            {handleCategory?.map((item) => (
+              <div
+                key={item.id}
+                aria-hidden="true"
+                className="input-container flex h-12 w-full items-center border-y-2 border-black-5 px-3 hover:bg-slate-50"
+                onClick={() => setCategory(item.category)}
+                onKeyDown={handleKeyDown}
+              >
+                {item.category}
+              </div>
+            ))}
           </div>
         ) : (
           <div className="hidden" />
