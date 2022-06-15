@@ -7,13 +7,27 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Product {
-  id String @id @default(uuid())
-  title String 
+model Category {
+  id       Int       @id @default(autoincrement())
   category String
+  Products Product[]
+
+  @@map("Categories")
+}
+
+model Product {
+  id           String    @id @default(uuid())
+  title        String
+  category     Category? @relation(fields: [categoryId], references: [id])
+  categoryId   Int?
   productImage String
-  description String
-  price Decimal
+  description  String
+  price        Decimal
 
   @@map("Products")
+}
+
+enum Role {
+  CATEGORY
+  ADMIN
 }
