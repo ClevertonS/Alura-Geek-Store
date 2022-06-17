@@ -13,7 +13,7 @@ export function ProductDescription({ description, setDescription }: IProductDesc
         placeholder="Descrição do produto"
         onChange={(event) => setDescription(event.target.value)}
         value={description}
-        className="w-full pb-[30px] outline-none"
+        className="w-full resize-y pb-[30px] outline-none"
         required
       />
     </fieldset>

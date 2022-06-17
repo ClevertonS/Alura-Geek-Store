@@ -12,6 +12,7 @@ interface IProps {
 export function SelectCategory({ category, setCategory }: IProps) {
   const [open, setOpen] = useState(false);
   const [handleCategory, setHandleCategory] = useState<ICategory[]>();
+
   const categoryName =
     category && handleCategory?.find((option) => option.category === category)?.category;
 

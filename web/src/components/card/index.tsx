@@ -1,18 +1,31 @@
 import React from 'react';
 
-export function Card() {
+import { IProduct } from '../../interface/IProduct';
+
+interface ICardsProps {
+  arrayCards: IProduct[];
+}
+
+export function Cards({ arrayCards }: ICardsProps) {
   return (
-    <li className="category-Card odd:mr-2 even:mr-0 sm:even:mr-2  xl:last:mr-0 ">
-      <img
-        src="src/assets/teste.png"
-        alt=""
-        className="h-[174px] w-[156px] object-cover sm:w-[164px] xl:w-[176px]"
-      />
-      <h4 className="pt-2 text-sm font-medium text-black-100">Produto XYZ</h4>
-      <h3 className="py-2 text-base font-bold text-black-100">R$ 60,00</h3>
-      <a href="teste" className="pr-3 text-sm font-bold text-blue-100">
-        Ver Produto
-      </a>
-    </li>
+    <>
+      {arrayCards.map((card) => (
+        <li
+          key={card.id}
+          className="w-full min-w-[156px] max-w-[calc(50%-8px)] flex-row sm:mr-2  sm:last:mr-0 "
+        >
+          <img
+            src={card.productImage}
+            alt=""
+            className="h-[174px] w-full object-cover sm:w-full xl:w-full"
+          />
+          <h4 className="pt-2 text-sm font-medium text-black-100">{card.title}</h4>
+          <h3 className="py-2 text-base font-bold text-black-100">R$ {card.price}</h3>
+          <a href="teste" className="pr-3 text-sm font-bold text-blue-100">
+            Ver Produto
+          </a>
+        </li>
+      ))}
+    </>
   );
 }
