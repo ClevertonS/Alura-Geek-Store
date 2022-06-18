@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { IProduct } from '../../interface/IProduct';
 
@@ -16,14 +17,14 @@ export function Cards({ arrayCards }: ICardsProps) {
         >
           <img
             src={card.productImage}
-            alt=""
+            alt={card.title}
             className="h-[174px] w-full object-cover sm:w-full xl:w-full"
           />
           <h4 className="pt-2 text-sm font-medium text-black-100">{card.title}</h4>
           <h3 className="py-2 text-base font-bold text-black-100">R$ {card.price}</h3>
-          <a href="teste" className="pr-3 text-sm font-bold text-blue-100">
+          <Link to={`/product/${card.id}`} className="pr-3 text-sm font-bold text-blue-100">
             Ver Produto
-          </a>
+          </Link>
         </li>
       ))}
     </>

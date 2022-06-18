@@ -7,6 +7,7 @@ import { Header } from './components/header';
 import { Category } from './pages/category';
 import { Emphasis } from './pages/category/emphasis';
 import { Login } from './pages/login';
+import { Product } from './pages/product';
 import { CreateProduct } from './pages/productCreator';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           />
           <Route path="/create" element={<CreateProduct />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/product/:id" element={<Product />} />
         </Route>
       </Routes>
       <Footer />
