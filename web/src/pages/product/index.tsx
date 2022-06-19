@@ -35,7 +35,10 @@ export function Product() {
       </div>
       <div className="container-Items mb-4 mt-8 sm:mt-16">
         <h3 className="text-[22px] font-bold text-black-100 xl:text-[32px]">Produtos Similares</h3>
-        <SimilarProduct categoryId={handleProduct?.categoryId} selfId={handleProduct?.id} />
+        <SimilarProduct
+          categoryId={handleProduct === undefined ? 0 : handleProduct.categoryId}
+          selfId={handleProduct?.id}
+        />
       </div>
     </section>
   );
