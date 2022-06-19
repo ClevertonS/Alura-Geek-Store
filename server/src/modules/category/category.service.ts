@@ -15,7 +15,22 @@ export class CategoryService {
     });
   }
 
-  async findWithLimit(value: string) {
+  async findByIdWithProductLimit(id: string, limit: string) {
+    const intId = parseInt(id);
+    const takeValue = parseInt(limit);
+    return await this.prisma.category.findUnique({
+      where: {
+        id: intId,
+      },
+      include: {
+        Products: {
+          take: takeValue,
+        },
+      },
+    });
+  }
+
+  async findWithProductLimit(value: string) {
     const takeValue = parseInt(value);
     return await this.prisma.category.findMany({
       include: {

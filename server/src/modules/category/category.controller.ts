@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { ProductDTO } from './product/product.dto';
 import { CategoryDTO } from './category.dto';
 import { CategoryService } from './category.service';
@@ -12,9 +12,17 @@ export class CategoryController {
     return this.categoryService.findAll();
   }
 
+  @Get('filter?')
+  async findByIdWithProductLimit(
+    @Query('id') id: string,
+    @Query('limit') limit: string,
+  ) {
+    return this.categoryService.findByIdWithProductLimit(id, limit);
+  }
+
   @Get('limit=:value')
-  async findWithLimit(@Param('value') value: string) {
-    return this.categoryService.findWithLimit(value);
+  async findWithProductLimit(@Param('value') value: string) {
+    return this.categoryService.findWithProductLimit(value);
   }
 
   @Post()

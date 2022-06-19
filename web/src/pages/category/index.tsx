@@ -52,7 +52,7 @@ export function Category() {
             </a>
           </div>
           <ul className="flex flex-row flex-wrap justify-between md:flex-nowrap">
-            <Cards arrayCards={item.Products} />
+            <Cards arrayCards={item.Products} hiddenSelfById={undefined} />
           </ul>
         </div>
       ))}
