@@ -27,6 +27,12 @@ model Product {
   @@map("Products")
 }
 
+model Users {
+  id String @id @default(uuid())
+  username String @unique
+  password String
+}
+
 enum Role {
   CATEGORY
   ADMIN

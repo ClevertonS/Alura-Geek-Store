@@ -15,6 +15,18 @@ export class CategoryService {
     });
   }
 
+  async findById(id: string) {
+    const intId = parseInt(id);
+    return await this.prisma.category.findUnique({
+      where: {
+        id: intId,
+      },
+      include: {
+        Products: true,
+      },
+    });
+  }
+
   async findByIdWithProductLimit(id: string, limit: string) {
     const intId = parseInt(id);
     const takeValue = parseInt(limit);

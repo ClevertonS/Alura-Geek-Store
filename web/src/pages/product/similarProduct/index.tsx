@@ -29,6 +29,7 @@ export function SimilarProduct({ categoryId, selfId }: ISimilarProduct) {
     }
     return cardLimit;
   }
+
   useEffect(() => {
     axios
       .get<ICategory>(`http://localhost:4000/category/filter?id=${categoryId}&limit=${qntCard()}`)
@@ -38,7 +39,7 @@ export function SimilarProduct({ categoryId, selfId }: ISimilarProduct) {
       .catch((error) => console.log(error));
   }, [width, categoryId]);
   return (
-    <ul className="flex flex-row flex-wrap justify-between md:flex-nowrap">
+    <ul className="my-4 flex flex-row flex-wrap justify-between sm:mb-8 md:flex-nowrap xl:mb-16">
       <Cards arrayCards={handleProducts?.Products} hiddenSelfById={selfId} />
     </ul>
   );

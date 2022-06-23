@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Creditos } from './components/creditos';
 import { Footer } from './components/footer';
 import { Header } from './components/header';
+import { AllProductsByCategory } from './pages/allProductsByCategory';
 import { Category } from './pages/category';
 import { Emphasis } from './pages/category/emphasis';
 import { Login } from './pages/login';
@@ -28,6 +29,7 @@ function App() {
           <Route path="/create" element={<CreateProduct />} />
           <Route path="/login" element={<Login />} />
           <Route path="/product/:id" element={<Product />} />
+          <Route path="/category/:id" element={<AllProductsByCategory />} />
         </Route>
       </Routes>
       <Footer />
