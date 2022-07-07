@@ -35,6 +35,7 @@ export class CategoryController {
     return this.categoryService.findWithProductLimit(value);
   }
 
+  @IsPublic()
   @Post()
   async createProduct(@Body() data: CategoryDTO<ProductDTO>) {
     return this.categoryService.createCategory(data);

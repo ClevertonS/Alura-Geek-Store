@@ -1,10 +1,13 @@
 module.exports = {
-  mode: 'jit',
-  content: ['./index.html', './src/**/*.{ts,tsx}'],
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./src/components/**/*.{js,ts,jsx,tsx}",
+    "./"
+  ],
   theme: {
     backgroundImage: {
-      'emphasis': "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(180deg, rgba(0, 0, 0, 0) 41.15%, rgba(0, 0, 0, 0.8) 100%), url(./assets/banner-image.png);",
-      'emphasis-desktop': "linear-gradient(180deg, rgba(0, 0, 0, 0) 41.15%, rgba(0, 0, 0, 0.8) 100%), url(./assets/banner-image.png)"
+      'emphasis': "linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(180deg, rgba(0, 0, 0, 0) 41.15%, rgba(0, 0, 0, 0.8) 100%), url(/images/banner-image.png);",
+      'emphasis-desktop': "linear-gradient(180deg, rgba(0, 0, 0, 0) 41.15%, rgba(0, 0, 0, 0.8) 100%), url(/images/banner-image.png)"
     },
     fontFamily: {
       sans: ['Raleway', 'sans-serif'],
@@ -27,3 +30,4 @@ module.exports = {
   },
   plugins: [],
 };
+
