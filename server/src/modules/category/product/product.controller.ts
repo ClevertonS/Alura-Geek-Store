@@ -27,6 +27,7 @@ export class ProductController {
     return this.productService.findById(id);
   }
 
+  @IsPublic()
   @Post()
   async createProduct(@Body() data: ProductDTO) {
     return this.productService.createProduct(data);

@@ -18,9 +18,9 @@ export function CreateProduct() {
   function onSubmitFrom(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     axios
-      .post('http://localhost:4000/category/product', {
+      .post('http://localhost:4000/product', {
         title: name,
-        category,
+        categoryId: 1,
         productImage: image,
         description,
         price,
