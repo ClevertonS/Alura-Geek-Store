@@ -9,7 +9,7 @@ import authService from '../src/services/auth';
 function Login() {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
-  const loginPostUrl = `${process.env.DATABASE_URL}/login`;
+  const loginPostUrl = `${process.env.NEXT_PUBLIC_BACKEND_URL}/login`;
   return (
     <>
       <Head>
