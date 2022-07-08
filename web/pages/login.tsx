@@ -9,7 +9,7 @@ import authService from '../src/services/auth';
 function Login() {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
-  const loginPostUrl = 'http://localhost:4000/login';
+  const loginPostUrl = `${process.env.DATABASE_URL}/login`;
   return (
     <>
       <Head>

@@ -8,7 +8,7 @@ import { IProduct } from '../src/interfaces/IProduct';
 import { TokenService } from '../src/services/auth/tokenService';
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await axios.get<IProduct>(`http://localhost:4000/product`);
+  const res = await axios.get<IProduct>(`${process.env.DATABASE_URL}/product`);
 
   return {
     props: {

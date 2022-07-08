@@ -12,7 +12,7 @@ export async function getServerSideProps(ctx: null) {
   const token = TokenService.get(ctx);
   let isAuthorized = false;
   await axios
-    .get<ICategory[]>('http://localhost:4000/product', {
+    .get<ICategory[]>(`${process.env.DATABASE_URL}/product`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
