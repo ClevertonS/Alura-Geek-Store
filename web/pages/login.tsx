@@ -22,7 +22,7 @@ function Login() {
             action=""
             onSubmit={(event) => {
               event.preventDefault();
-              authService.login(`${process.env.DATABASE_URL}/login`, { username: login, password });
+              authService.login({ username: login, password });
             }}
             className="flex w-full flex-col items-center self-center lg:max-w-[425px]"
           >
