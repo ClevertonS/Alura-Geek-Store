@@ -8,17 +8,19 @@ import { Footer } from '../src/components/patterns/Footer';
 import { Header } from '../src/components/patterns/Header';
 import Categorys from '../src/components/screens/HomeScreen/Categorys';
 import { ICategory } from '../src/interfaces/ICategory';
-import { api } from '../src/lib/api';
 import { TokenService } from '../src/services/auth/tokenService';
 
 export async function getServerSideProps(ctx: null) {
   const token = TokenService.get(ctx);
   console.log(token);
-  const res = await axios.get<ICategory[]>(`${process.env.DATABASE_URL}/category/limit=6`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
+  const res = await axios.get<ICategory[]>(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/category/limit=6`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     },
-  });
+  );
   console.log(res);
   return {
     props: {

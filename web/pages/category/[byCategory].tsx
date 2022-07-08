@@ -11,7 +11,7 @@ import { TokenService } from '../../src/services/auth/tokenService';
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { byCategory } = context.query;
   const res = await axios.get<ICategory>(
-    `${process.env.DATABASE_URL}/category/${byCategory}/allproducts`,
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/category/${byCategory}/allproducts`,
   );
 
   return {

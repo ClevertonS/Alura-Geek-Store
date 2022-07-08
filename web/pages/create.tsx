@@ -12,7 +12,7 @@ export async function getServerSideProps(ctx: null) {
   const token = TokenService.get(ctx);
   let isAuthorized = false;
   await axios
-    .get<ICategory[]>(`${process.env.DATABASE_URL}/product`, {
+    .get<ICategory[]>(`${process.env.NEXT_PUBLIC_BACKEND_URL}/product`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -21,6 +21,7 @@ export async function getServerSideProps(ctx: null) {
       isAuthorized = true;
     })
     .catch(() => {
+      alert('não autorizado');
       isAuthorized = false;
     });
   if (isAuthorized === false) {
@@ -38,7 +39,7 @@ export async function getServerSideProps(ctx: null) {
   };
 }
 
-function Create({ res }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+function Create() {
   return (
     <>
       <Head>

@@ -14,7 +14,7 @@ const authService = {
       .post(url, value)
       .then((resposta) => {
         TokenService.save(resposta.data.acess_token);
-        alert('Login efeutado com');
+        alert('Login efeutado com sucesso');
         Router.push('/');
       })
       .catch((error) => {

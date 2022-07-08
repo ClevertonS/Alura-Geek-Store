@@ -10,7 +10,7 @@ import { TokenService } from '../../src/services/auth/tokenService';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { id } = context.query;
-  const res = await axios.get<IProduct>(`${process.env.DATABASE_URL}/product/${id}`);
+  const res = await axios.get<IProduct>(`${process.env.NEXT_PUBLIC_BACKEND_URL}/product/${id}`);
 
   return {
     props: {
