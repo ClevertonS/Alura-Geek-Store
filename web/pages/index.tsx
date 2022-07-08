@@ -19,6 +19,7 @@ export async function getServerSideProps(ctx: null) {
       Authorization: `Bearer ${token}`,
     },
   });
+  console.log(res);
   return {
     props: {
       res: res.data,

@@ -1,4 +1,5 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
+import { IsPublic } from 'src/auth/decorators/is-public.decorator';
 import { UserDto } from './user.dto';
 import { UserService } from './user.service';
 
@@ -11,6 +12,7 @@ export class UserController {
     return this.userService.findByEmail(username);
   }
 
+  @IsPublic()
   @Post()
   async createProduct(@Body() data: UserDto) {
     return this.userService.create(data);
