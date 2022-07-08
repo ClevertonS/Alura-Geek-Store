@@ -9,7 +9,6 @@ import authService from '../src/services/auth';
 function Login() {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
-  const loginPostUrl = `${process.env.DATABASE_URL}/login`;
   return (
     <>
       <Head>
@@ -23,7 +22,7 @@ function Login() {
             action=""
             onSubmit={(event) => {
               event.preventDefault();
-              authService.login(loginPostUrl, { username: login, password });
+              authService.login(`${process.env.DATABASE_URL}/login`, { username: login, password });
             }}
             className="flex w-full flex-col items-center self-center lg:max-w-[425px]"
           >
