@@ -19,7 +19,7 @@ export function SelectCategory({ category, setIdCategory, setCategory }: IProps)
 
   useEffect(() => {
     axios
-      .get<ICategory[]>('http://localhost:4000/category')
+      .get<ICategory[]>(`${process.env.NEXT_PUBLIC_BACKEND_URL}/category`)
       .then((event) => setHandleCategory(event.data))
       .catch((error) => console.log(error));
   });

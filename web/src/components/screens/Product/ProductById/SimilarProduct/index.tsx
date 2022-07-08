@@ -13,7 +13,9 @@ function SimilarProduct({ categoryId, selfId }: ISimilarProduct) {
   const [handleProducts, setHandleProducts] = useState<ICategory | undefined>();
   useEffect(() => {
     axios
-      .get<ICategory>(`http://localhost:4000/category/filter?id=${categoryId}&limit=6`)
+      .get<ICategory>(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/category/filter?id=${categoryId}&limit=6`,
+      )
       .then((event) => {
         setHandleProducts(event.data);
       })
