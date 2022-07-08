@@ -9,18 +9,16 @@ interface IValue {
 }
 
 const authService = {
-  async login(value: IValue) {
+  async login(url: string, value: IValue) {
     axios
-      .post(`${process.env.DATABASE_URL}/login`, {
-        username: value.username,
-        password: value.password,
-      })
+      .post(url, value)
       .then((resposta) => {
         TokenService.save(resposta.data.acess_token);
-        alert('Login efeutado com sucesso');
+        alert('Login efeutado com');
         Router.push('/');
       })
       .catch((error) => {
+        console.log(url);
         console.log(error);
         alert('Senha ou Email incorreto');
       });
