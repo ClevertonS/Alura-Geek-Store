@@ -7,6 +7,8 @@
  
 </div>
 
+<h3>O Servidor está fora do ar pois o banco de dados excedeu o limite mensal de requisições :( </h3>
+
 # Sobre o Projeto
 <a href="https://alura-geek-store.vercel.app/">Clique aqui e acesse o Projeto!</a>
 
